@@ -49,10 +49,6 @@ public class Student {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public String getName() {
         return name;
     }
@@ -71,10 +67,6 @@ public class Student {
 
     public LocalDate getDob() {
         return dob;
-    }
-
-    public void setDob(LocalDate dob) {
-        this.dob = dob;
     }
 
     // TODO: Understand how this.age is set by this.. since it isn't in the constructor
