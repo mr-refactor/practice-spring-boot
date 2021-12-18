@@ -23,13 +23,21 @@ public class StudentController {
     }
 
     @PostMapping
-    public void registerNewStudent(@RequestBody Student student) {
-        studentService.addNewStudent(student);
+    public Student registerNewStudent(@RequestBody Student student) {
+        return studentService.addNewStudent(student);
+    }
+
+    @PatchMapping(path = "{studentId}")
+    public Student editStudentInfo(
+            @PathVariable("studentId") Long studentId,
+            @RequestParam(required = false) String name,
+            @RequestParam(required = false) String email) {
+        return studentService.updateStudent(studentId, name, email);
     }
 
     @DeleteMapping(path = "{studentId}")
-    public void deleteStudent(
-            @PathVariable("studentId") Long id){
-        studentService.deleteStudent(id);
+    public String deleteStudent(
+            @PathVariable("studentId") Long studentId){
+        return studentService.deleteStudent(studentId);
     }
 }
